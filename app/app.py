@@ -2,6 +2,7 @@
 import streamlit as st
 import pandas as pd
 import joblib
+from pathlib import Path
 
 # -------------------------
 # Page Configuration
@@ -20,13 +21,23 @@ st.set_page_config(
 @st.cache_data
 def load_data():
 
-    active_data = pd.read_csv("active_data.csv")
+    BASE_DIR = Path(__file__).resolve().parent.parent
 
-    book_lookup = joblib.load("book_lookup.pkl")
+    active_data = pd.read_csv(
+        BASE_DIR / "data" / "processed" / "active_data.csv"
+    )
 
-    user_item_matrix = joblib.load("user_item_matrix.pkl")
+    book_lookup = joblib.load(
+        BASE_DIR / "models" / "book_lookup.pkl"
+    )
 
-    user_similarity_df = joblib.load("recommendation_model.pkl")
+    user_item_matrix = joblib.load(
+        BASE_DIR / "models" / "user_item_matrix.pkl"
+    )
+
+    user_similarity_df = joblib.load(
+        BASE_DIR / "models" / "recommendation_model.pkl"
+    )
 
     return (
         active_data,
