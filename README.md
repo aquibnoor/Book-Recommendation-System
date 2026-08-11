@@ -119,6 +119,18 @@ The technical implementation is deliberately kept behind the interface so that t
 
 ---
 
+## 🖥️ Application Preview
+
+The system provides an interactive Streamlit interface where users can select a User ID and receive personalized book recommendations generated through user-based collaborative filtering.
+
+### Recommendation Interface
+
+![Book Recommendation System Interface](images/book-recommendation-system-UI.png)
+
+### Personalized Recommendations
+
+![Personalized Book Recommendations](images/user-recommendation.png)
+
 ## 📊 Exploratory Data Analysis
 
 The EDA stage investigates patterns within the book and user datasets, including:
